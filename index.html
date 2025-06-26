@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Love for Insha Firdause 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top left, #ffe6f0, #ffb3c6);
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .love-card {
+      background: white;
+      width: 370px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .love-card::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/mVaF05Y.png');
+      background-size: cover;
+      opacity: 0.05;
+      top: 0;
+      left: 0;
+    }
+
+    .heart-emoji {
+      font-size: 48px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    .card-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: #ff4d6d;
+      margin: 15px 0 10px;
+    }
+
+    .photo-frame {
+      width: 120px;
+      height: 120px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 0 auto 15px;
+      border: 4px solid #ff4d6d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .message-box {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .custom-message {
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+      color: #d6336c;
+      margin-top: 15px;
+      min-height: 40px;
+    }
+
+    input {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+      width: 90%;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="love-card">
+    <div class="heart-emoji">❤️</div>
+    <div class="card-title">To Insha Firdause</div>
+    <div class="photo-frame">
+      <img src="9df8082a.jpg" alt="Insha Firdause Photo" />
+    </div>
+    <div class="message-box">
+      I may not always be beside you, but my heart beats for you in every second. 💞<br>
+      You are my sunshine, my peace, my everything.
+    </div>
+    <div class="custom-message" id="customText">Forever Yours, Priyanshu 💌</div>
+    <input type="text" placeholder="Write your message..." oninput="updateCardMessage(this.value)" />
+  </div>
+
+  <script>
+    function updateCardMessage(value) {
+      const msg = value.trim() || 'Forever Yours, Priyanshu 💌';
+      document.getElementById('customText').innerText = msg;
+    }
+  </script>
+</body>
+</html>
