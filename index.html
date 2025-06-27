@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>My Love for Insha Firdause 💗</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: url('9df8082a.jpg') center center fixed;
+      padding: 40px 10px;
+      background: url('9df8082a.jpg');
       background-size: cover;
       font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
     }
 
     .love-card {
       background: rgba(255, 255, 255, 0.95);
-      width: 370px;
+      width: 90%;
+      max-width: 420px;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -32,20 +33,20 @@
     }
 
     .heart-emoji {
-      font-size: 48px;
+      font-size: 52px;
       animation: heartbeat 1.2s infinite;
     }
 
     .card-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 32px;
+      font-size: 34px;
       color: #ff4d6d;
-      margin: 15px 0 10px;
+      margin: 20px 0 12px;
     }
 
     .photo-frame {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 15px;
       overflow: hidden;
       margin: 0 auto 15px;
@@ -60,16 +61,17 @@
     }
 
     .message-box {
-      font-size: 16px;
+      font-size: 17px;
       color: #333;
       margin-bottom: 20px;
+      line-height: 1.5;
     }
 
     .custom-message {
       font-family: 'Great Vibes', cursive;
-      font-size: 22px;
+      font-size: 24px;
       color: #d6336c;
-      margin-top: 15px;
+      margin-top: 18px;
       min-height: 40px;
     }
 
@@ -78,16 +80,16 @@
       border-radius: 10px;
       border: 1px solid #ccc;
       outline: none;
-      font-size: 14px;
-      width: 90%;
+      font-size: 16px;
+      width: 95%;
       margin-top: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     button {
-      margin-top: 10px;
+      margin-top: 12px;
       padding: 10px 20px;
-      font-size: 14px;
+      font-size: 15px;
       background-color: #ff4d6d;
       color: white;
       border: none;
@@ -113,6 +115,36 @@
   </style>
 </head>
 <body>
+  <!-- Romantic Background Music -->
+  <audio id="bg-music" autoplay loop></audio>
+  <script>
+    // To bypass autoplay restrictions
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      audio.src = 'Enna_sona.mp3';
+      audio.play().catch(() => {
+        // Show a play button if needed
+        const btn = document.createElement('button');
+        btn.innerText = 'Play Music';
+        btn.style.position = 'absolute';
+        btn.style.top = '20px';
+        btn.style.right = '20px';
+        btn.style.zIndex = 999;
+        btn.style.padding = '10px 15px';
+        btn.style.borderRadius = '10px';
+        btn.style.backgroundColor = '#ff4d6d';
+        btn.style.color = 'white';
+        btn.style.border = 'none';
+        btn.style.cursor = 'pointer';
+        btn.onclick = () => {
+          audio.play();
+          btn.remove();
+        };
+        document.body.appendChild(btn);
+      });
+    });
+  </script>
+
   <div class="love-card">
     <div class="heart-emoji">❤️</div>
     <div class="card-title">To Insha Firdause</div>
@@ -129,25 +161,22 @@
   </div>
 
   <script>
-     function sendWhatsApp() {
-    const input = document.getElementById('whatsappInput');
-    const message = input.value.trim();
+    function sendWhatsApp() {
+      const input = document.getElementById('whatsappInput');
+      const message = input.value.trim();
 
-    if (!message) {
-      alert('Please type a message.');
-      return;
+      if (!message) {
+        alert('Please type a message.');
+        return;
+      }
+
+      const phoneNumber = '917007293169';
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+
+      document.getElementById('customText').innerText = message;
     }
-
-    // Replace this with your actual WhatsApp number in international format
-    const phoneNumber = '917007293169';
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-    window.open(whatsappURL, '_blank');
-
-    // Update card message visually
-    document.getElementById('customText').innerText = message;
-  }
   </script>
 </body>
 </html>
