@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Love for Insha Firdause 💗</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 40px 10px;
-      background: url('9df8082a.jpg');
+      background: url('9df8082a.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       min-height: 100vh;
-      overflow: hidden;
     }
 
     .love-card {
@@ -27,8 +27,6 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       text-align: center;
-      position: relative;
-      overflow: hidden;
       animation: fadeIn 1.5s ease;
     }
 
@@ -61,10 +59,10 @@
     }
 
     .message-box {
-      font-size: 17px;
+      font-size: 18px;
       color: #333;
-      margin-bottom: 20px;
-      line-height: 1.5;
+      margin-bottom: 25px;
+      line-height: 1.7;
     }
 
     .custom-message {
@@ -72,15 +70,15 @@
       font-size: 24px;
       color: #d6336c;
       margin-top: 18px;
-      min-height: 40px;
+      min-height: 60px;
     }
 
     input {
-      padding: 10px 15px;
+      padding: 14px 18px;
       border-radius: 10px;
       border: 1px solid #ccc;
       outline: none;
-      font-size: 16px;
+      font-size: 17px;
       width: 95%;
       margin-top: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -88,18 +86,22 @@
 
     button {
       margin-top: 12px;
-      padding: 10px 20px;
-      font-size: 15px;
+      padding: 12px 25px;
+      font-size: 16px;
       background-color: #ff4d6d;
       color: white;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s;
+    }
+
+    #playMusicBtn {
+      margin-top: 15px;
+      background-color: #6f42c1;
     }
 
     button:hover {
-      background-color: #e8435e;
+      opacity: 0.9;
     }
 
     @keyframes heartbeat {
@@ -115,36 +117,17 @@
   </style>
 </head>
 <body>
-  <!-- Romantic Background Music -->
-  <audio id="bg-music" autoplay loop></audio>
-  <script>
-    // To bypass autoplay restrictions
-    window.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('bg-music');
-      audio.src = 'Enna_sona.mp3';
-      audio.play().catch(() => {
-        // Show a play button if needed
-        const btn = document.createElement('button');
-        btn.innerText = 'Play Music';
-        btn.style.position = 'absolute';
-        btn.style.top = '20px';
-        btn.style.right = '20px';
-        btn.style.zIndex = 999;
-        btn.style.padding = '10px 15px';
-        btn.style.borderRadius = '10px';
-        btn.style.backgroundColor = '#ff4d6d';
-        btn.style.color = 'white';
-        btn.style.border = 'none';
-        btn.style.cursor = 'pointer';
-        btn.onclick = () => {
-          audio.play();
-          btn.remove();
-        };
-        document.body.appendChild(btn);
-      });
-    });
-  </script>
 
+  <!-- Music -->
+  <audio id="bg-music" loop>
+    <source src="music/enna_sona.mp3" type="audio/mpeg" />
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- Music Play Button -->
+  <button id="playMusicBtn" onclick="playMusic()">🎵 Play Music</button>
+
+  <!-- Card -->
   <div class="love-card">
     <div class="heart-emoji">❤️</div>
     <div class="card-title">To Insha Firdause</div>
@@ -161,6 +144,12 @@
   </div>
 
   <script>
+    function playMusic() {
+      const music = document.getElementById('bg-music');
+      music.play();
+      document.getElementById('playMusicBtn').innerText = '🎶 Music Playing';
+    }
+
     function sendWhatsApp() {
       const input = document.getElementById('whatsappInput');
       const message = input.value.trim();
@@ -170,7 +159,7 @@
         return;
       }
 
-      const phoneNumber = '917007293169';
+      const phoneNumber = '91707293169'; // Change to your WhatsApp number
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       window.open(whatsappURL, '_blank');
